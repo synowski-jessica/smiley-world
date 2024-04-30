@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "Emoji Substitution",
+    "description": "Remplace les mots par des emojis",
+    "version": "1.0",
+    "icons": {
+      "48": "img/iconeExtension.png"
+    },
+    "browser_action":{
+        "48":"img/iconeExtension.png",
+        "default_popup":"popup.html"
+    }
+
+}
