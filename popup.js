@@ -1,13 +1,27 @@
-const translateText = document.getElementById("translateText");
-const translateEmoji = document.getElementById("translateEmoji");
-const paragraph = document.querySelector("p").innerText;
+document
+    .getElementById("translateToEmojisButton")
+    .addEventListener("click", function () {
+        chrome.tabs.query(
+            { active: true, currentWindow: true },
 
-wordsList = paragraph.split(", ");
-console.log(wordsList);
-console.log(wordsList.includes("sucre"));
+            function (tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    method: "translateToEmojis",
+                })
+            }
+        )
+    })
 
-for (let word = 0; word < wordsList.length; word++) {}
+document
+    .getElementById("translateToWordsButton")
+    .addEventListener("click", function () {
+        chrome.tabs.query(
+            { active: true, currentWindow: true },
 
-translateText.addEventListener("click", () => {
-  paragraph.innerHTML = "🍎";
-});
+            function (tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    method: "translateToWords",
+                })
+            }
+        )
+    })
